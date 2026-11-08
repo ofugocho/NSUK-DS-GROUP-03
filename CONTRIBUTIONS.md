@@ -8,7 +8,7 @@ cleaning code for LGAs, Yes/No and months; wrote report section 2; fixed the mer
 
 | # | Name | GitHub username | Role | What I did |
 |---|---|---|---|---|
-| 1 | | @ | Coordinator + Data lead (Parts 1–2) | |
+| 1 |Victor Ochoche | @ofugocho | Coordinator + Data lead (Parts 1–2) |Repository setup and team coordination |
 | 2 | | @ | Visualisation lead (Parts 3 and 7) | |
 | 3 | | @ | Statistics lead (Parts 4–5) | |
 | 4 | | @ | Machine-learning lead (Part 6) | |
