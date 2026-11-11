@@ -12,7 +12,7 @@ cleaning code for LGAs, Yes/No and months; wrote report section 2; fixed the mer
 | 2 | | @ | Visualisation lead (Parts 3 and 7) | |
 | 3 | | @ | Statistics lead (Parts 4–5) | |
 | 4 | | @ | Machine-learning lead (Part 6) | |
-| 5 | | @ | App lead (Parts 8–9) | |
+| 5 | | Tavershima Ngutor Moses | @uvaoceanz | App lead (Parts 8–9) | repo,set up enviroment |
 
 ## Meeting log *(optional, but helps if there are disagreements later)*
 | Date | Who attended | What we agreed |
