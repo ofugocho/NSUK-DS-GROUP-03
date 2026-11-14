@@ -41,12 +41,15 @@ GROUP_NAME = "Group ___"
 # ============================================================================
 # TODO 2: Type the names of the five members of your group
 # ============================================================================
+# ======================
+GROUP_NAME = "Group 03"
+
 TEAM = [
-    "Member 1 name (Data lead)",
-    "Member 2 name (Visualisation lead)",
+    "Victor Ochoche (Data lead)",
+    "Ahamefula Okpara (Visualisation lead)",
     "Member 3 name (Statistics lead)",
-    "Member 4 name (ML lead)",
-    "Member 5 name (App lead)",
+    "Bisala Bwejua Caleb (ML lead)",
+    "Tavershima Ngutor Moses (App lead)",
 ]
 
 
