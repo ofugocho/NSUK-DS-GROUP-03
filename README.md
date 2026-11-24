@@ -15,11 +15,11 @@
 
 | Member | GitHub username | Role | Parts |
 |---|---|---|---|
-| Victor Ochoche | @ofugocho | Coordinator + Data lead | Parts 1–2 |
-| | @ | Visualisation lead | Parts 3 and 7 |
-| | @ | Statistics lead | Parts 4–5 |
-| | @ | Machine-learning lead | Part 6 |
-| | @ | App lead | Parts 8–9 |
+|  Ochoche Victor Ofugocho | @ofugocho | Coordinator + Data lead | Parts 1–2 |
+| Ahamefula Okpara | @effrey-001-Nsuk | Visualisation lead | Parts 3 |
+| Nathaniel Christian Chidi | @Ogaphys | Statistics lead | Parts 4–5 |
+| Bisala Bwejua Caleb | @Bisacal | Machine-learning lead | Part 6-7 |
+| Tavershima Ngutor Moses | @uvaoceanz | App lead | Parts 8–9 |
 
 **Our key findings (3–5 bullet points with numbers):**
 - …

@@ -8,7 +8,7 @@ cleaning code for LGAs, Yes/No and months; wrote report section 2; fixed the mer
 
 | # | Name | GitHub username | Role | What I did |
 |---|---|---|---|---|
-| 1 |Victor Ochoche | @ofugocho | Coordinator + Data lead (Parts 1–2) | Auditing and cleaning the raw data |
+| 1 | Ochoche Victor Ofugocho | @ofugocho | Coordinator + Data lead (Parts 1–2) | Auditing and cleaning the raw data |
 | 2 | Ahamefula Okpara| @Jeffrey-001-Nsuk| Visualisation lead (Parts 3 and 7) |Exploratory Data Analysis|
 | 3 | Nathaniel Christian Chidi| @Ogaphys | Statistics lead (Parts 4–5) | Working on the statistical analysis of the project 
 | 4 |Bisala Bwejua Caleb | @Bisacal | Machine-learning lead (Part 6) |Committing my name to the repository |
