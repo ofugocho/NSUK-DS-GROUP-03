@@ -1,0 +1,172 @@
+{
+  "group": "group_03",
+  "model": "LinearRegression",
+  "target": "yield_t_per_ha",
+  "numeric_features": [
+    "farmer_age",
+    "household_size",
+    "years_farming",
+    "farm_size_ha",
+    "sett_weight_g",
+    "mound_density_per_ha",
+    "fertilizer_kg_per_ha",
+    "weeding_count",
+    "rainfall_mm",
+    "extension_visits",
+    "distance_to_market_km"
+  ],
+  "categorical_features": [
+    "lga",
+    "gender",
+    "education_level",
+    "seed_source",
+    "planting_month",
+    "staking",
+    "organic_manure",
+    "intercropped",
+    "soil_type",
+    "pest_disease_level",
+    "cooperative_member",
+    "access_to_credit"
+  ],
+  "test_metrics": {
+    "MAE": 1.423859652330518,
+    "RMSE": 1.8300634851816904,
+    "R2": 0.5858051843352476
+  },
+  "n_training_rows": 1888,
+  "numeric_ranges": {
+    "farmer_age": [
+      18.0,
+      45.0,
+      79.0
+    ],
+    "household_size": [
+      1.0,
+      6.0,
+      16.0
+    ],
+    "years_farming": [
+      1.0,
+      22.0,
+      59.0
+    ],
+    "farm_size_ha": [
+      0.12,
+      1.14,
+      33.0
+    ],
+    "sett_weight_g": [
+      100.0,
+      275.0,
+      469.0
+    ],
+    "mound_density_per_ha": [
+      5000.0,
+      9970.0,
+      16000.0
+    ],
+    "fertilizer_kg_per_ha": [
+      0.0,
+      95.0,
+      460.7
+    ],
+    "weeding_count": [
+      1.0,
+      2.0,
+      4.0
+    ],
+    "rainfall_mm": [
+      516.1,
+      1259.2,
+      1969.1
+    ],
+    "extension_visits": [
+      0.0,
+      1.0,
+      8.0
+    ],
+    "distance_to_market_km": [
+      0.2,
+      10.1,
+      55.8
+    ]
+  },
+  "categories": {
+    "lga": [
+      "Akwanga",
+      "Awe",
+      "Doma",
+      "Karu",
+      "Keana",
+      "Keffi",
+      "Kokona",
+      "Lafia",
+      "Nasarawa",
+      "Nasarawa Eggon",
+      "Obi",
+      "Toto",
+      "Wamba"
+    ],
+    "gender": [
+      "Female",
+      "Male"
+    ],
+    "education_level": [
+      "No formal education",
+      "Primary",
+      "Secondary",
+      "Tertiary"
+    ],
+    "seed_source": [
+      "ADP / NGO",
+      "Certified seed yam",
+      "Local market",
+      "Own saved setts"
+    ],
+    "planting_month": [
+      "April",
+      "December",
+      "February",
+      "January",
+      "March"
+    ],
+    "staking": [
+      "No",
+      "Yes"
+    ],
+    "organic_manure": [
+      "No",
+      "Yes"
+    ],
+    "intercropped": [
+      "No",
+      "Yes"
+    ],
+    "soil_type": [
+      "Clay loam",
+      "Loam",
+      "Sandy",
+      "Sandy loam"
+    ],
+    "pest_disease_level": [
+      "Absent",
+      "High",
+      "Low",
+      "Moderate"
+    ],
+    "cooperative_member": [
+      "No",
+      "Yes"
+    ],
+    "access_to_credit": [
+      "No",
+      "Yes"
+    ]
+  },
+  "trained_at": "2026-11-24T23:25:47+00:00",
+  "python": "3.12.10",
+  "scikit_learn": "1.9.1",
+  "data_note": "Trained on SYNTHETIC teaching data. Do not use for real farm decisions.",
+  "notes": "Chosen by 5-fold CV (Linear regression)"
+}
