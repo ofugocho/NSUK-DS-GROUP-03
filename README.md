@@ -20,6 +20,7 @@
 | Nathaniel Christian Chidi | @Ogaphys | Statistics lead | Parts 4–5 |
 | Bisala Bwejua Caleb | @Bisacal | Machine-learning lead | Part 6-7 |
 | Tavershima Ngutor Moses | @uvaoceanz | App lead | Parts 8–9 |
+| Njeni John Okachi  | @JohnTech-coder96  | Reviewer | Final checkings |
 
 **Our key findings (3–5 bullet points with numbers):**
 - …
