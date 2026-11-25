@@ -18,5 +18,10 @@ cleaning code for LGAs, Yes/No and months; wrote report section 2; fixed the mer
 
 ## Meeting log *(optional, but helps if there are disagreements later)*
 | Date | Who attended | What we agreed |
-|---|---|---|
-| | | |
+| 14-11-2026 |All |Cleaning rules: drop duplicates, standardise spellings, convert text to numbers, set -999 and impossible values to missing.|
+| 16-11-2026 | ALL | Valid ranges (age 15 to 90, farm size 0.05 to 50 ha, mounds 2,000 to 25,000/ha, yield 0.5 to 40 t/ha). Drop farms with no yield (2,360 left). |
+| 19-11-2026 | ALL | Hypotheses H1 to H3 and tests (Welch t-test, chi-square, ANOVA). Report effect sizes and CIs, and say "associated with", not "causes". |
+| 21-11-2026 | ALL | ML design: 80/20 split, 5-fold CV, test set untouched. Leaky columns excluded. Linear regression chosen. |
+| 24-11-2026 | ALL | Final regression adds rainfall and mound-density squares. Gender result worded as "no significant difference after adjustment". |
+| 24-11-2026 | ALL | |
+
