@@ -140,6 +140,7 @@ with tab_predict:
         # 💡 Hint: delete the # at the start of the next line
         # ====================================================================
         # prediction = float(model.predict(farm)[0])
+        prediction = float(model.predict(farm)[0])
 
         if prediction is None:
             st.info("👋 Complete **TODO 4** in `app/streamlit_app.py` to see the prediction.")
@@ -150,6 +151,7 @@ with tab_predict:
             # ================================================================
             # TODO 5: Show the prediction as a big number with c1.metric(label, value, change)
             # 💡 Hint: c1.metric("Predicted yield", f"{prediction:.1f} t/ha", f"{prediction - average:+.1f} t/ha vs average")
+            c1.metric("Predicted yield", f"{prediction:.1f} t/ha", f"{prediction - average:+.1f} t/ha vs average")
             # ================================================================
 
 
@@ -157,6 +159,7 @@ with tab_predict:
             # TODO 6: Show the expected TOTAL harvest of this farm in tonnes.
             # Total harvest = predicted yield (t/ha) x farm size (ha) = prediction * inputs["farm_size_ha"]
             # 💡 Hint: c2.metric("Expected harvest for this farm", f"{prediction * inputs['farm_size_ha']:.1f} tonnes")
+            c2.metric("Expected harvest for this farm", f"{prediction * inputs['farm_size_ha']:.1f} tonnes")
             # ================================================================
 
 
@@ -185,6 +188,7 @@ with tab_explore:
     # 💡 Hint: delete the # at the start of the next line
     # ========================================================================
     # group_col = st.selectbox("Compare average yield by", card["categorical_features"], format_func=nice)
+    group_col = st.selectbox("Compare average yield by", card["categorical_features"], format_func=nice)
 
     if group_col is None:
         st.info("👋 Complete **TODO 7** in `app/streamlit_app.py` to show the chart.")
@@ -212,6 +216,9 @@ with tab_about:
     #   c1.metric("R² (test set)", f"{m['R2']:.2f}")
     #   c2.metric("MAE", f"{m['MAE']:.2f} t/ha")
     #   c3.metric("RMSE", f"{m['RMSE']:.2f} t/ha")
+    c1.metric("R² (test set)", f"{m['R2']:.2f}")
+    c2.metric("MAE", f"{m['MAE']:.2f} t/ha")
+    c3.metric("RMSE", f"{m['RMSE']:.2f} t/ha")
     # ========================================================================
 
 
