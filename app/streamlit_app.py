@@ -36,7 +36,7 @@ st.set_page_config(page_title="Yam Yield Predictor", page_icon="🍠", layout="w
 # ============================================================================
 # TODO 1: Type your group name between the quotes, e.g. "Group 03"
 # ============================================================================
-GROUP_NAME = "Group ___"
+GROUP_NAME = "Group 03"
 
 # ============================================================================
 # TODO 2: Type the names of the five members of your group
