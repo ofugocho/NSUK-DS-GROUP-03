@@ -1,8 +1,8 @@
 # Farm practices associated with yam yield in Nasarawa State: a reproducible data science analysis
 
-**Group ___** · NSUK Python for Data Science Workshop 2026 · Group project
+**Group_03** · NSUK Python for Data Science Workshop 2026 · Group project
 
-**Authors:** *Name 1, Name 2, Name 3, Name 4, Name 5*
+**Authors:** *Victor Ochoche, Ahamefula Okpara, Nathaniel Christian Chidi, Bisala Bwejua Caleb, Tavershima Ngutor Moses,Njeni John Okachi*
 
 > *How to use this template: replace every line in italics with your own writing, then delete the guidance. Each
 > section lists who usually drafts it, but agree this in your group. Target length: **1,500–2,500 words**, plus figures
