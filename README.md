@@ -10,7 +10,7 @@
 | | |
 |---|---|
 | **Group** | Group 03 |
-| **Live app** | *(optional: paste your Streamlit Community Cloud link)* |
+| **Live app** | https://nsuk-ds-group-03-qhvra2tyidymhysovdniyl.streamlit.app/|
 | **Report** | [`report/GROUP_REPORT.md`](report/GROUP_REPORT.md) |
 
 | Member | GitHub username | Role | Parts |
