@@ -81,7 +81,7 @@ st.title(f"🍠 Yam Yield Predictor · {GROUP_NAME}")
 # TODO 3: Add a one-sentence description of the app under the title.
 # 💡 Hint: delete the # at the start of the next line and change the text if you like
 # ============================================================================
-# st.caption("Predicts the yam yield (tonnes per hectare) of a farm in Nasarawa State from its practices. Trained on SYNTHETIC data for teaching.")
+st.caption("Predicts the yam yield (tonnes per hectare) of a farm in Nasarawa State from its practices. Trained on SYNTHETIC data for teaching.")
 
 with st.sidebar:
     st.header("👥 Our team")
