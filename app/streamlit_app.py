@@ -47,9 +47,10 @@ GROUP_NAME = "Group 03"
 TEAM = [
     "Victor Ochoche (Data lead)",
     "Ahamefula Okpara (Visualisation lead)",
-    "Member 3 name (Statistics lead)",
+    "Nathaniel Christian Chidi (Statistics lead)",
     "Bisala Bwejua Caleb (ML lead)",
     "Tavershima Ngutor Moses (App lead)",
+    "Njeni John Okachi (Reviewer)"
 ]
 
 
