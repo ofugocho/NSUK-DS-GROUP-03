@@ -164,8 +164,8 @@
       "Yes"
     ]
   },
-  "trained_at": "2026-11-24T23:25:47+00:00",
-  "python": "3.12.10",
+  "trained_at": "2026-11-26T00:42:47+00:00",
+  "python": "3.11.0",
   "scikit_learn": "1.9.1",
   "data_note": "Trained on SYNTHETIC teaching data. Do not use for real farm decisions.",
   "notes": "Chosen by 5-fold CV (Linear regression)"

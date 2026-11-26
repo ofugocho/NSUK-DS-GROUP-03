@@ -1,0 +1,11 @@
+,,No,Yes
+yield_t_per_ha,mean,8.83,10.46
+yield_t_per_ha,std,2.84,2.81
+fertilizer_kg_per_ha,mean,108.84,109.46
+fertilizer_kg_per_ha,std,86.26,90.64
+farm_size_ha,mean,1.43,1.4
+farm_size_ha,std,1.84,0.94
+weeding_count,mean,2.48,2.48
+weeding_count,std,0.86,0.86
+extension_visits,mean,1.11,1.55
+extension_visits,std,1.28,1.48
