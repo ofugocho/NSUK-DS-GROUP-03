@@ -34,9 +34,7 @@ Because the data come from an observational survey, we describe associations and
 
 ## 2. Data and cleaning *(Member 1)*
 ### 2.1 The dataset
-*### 2.1 The dataset
-
-The data come from a synthetic farm-level survey of yam growers in Nasarawa State, provided as
+*The data come from a synthetic farm-level survey of yam growers in Nasarawa State, provided as
 `data/raw/nasarawa_yam_survey_synthetic.csv`.
 The raw file has **2,436 rows and 28 columns**. Each row is one farm surveyed in one year between2021 and 2025. After removing duplicate entries, there are 2,400 distinct farms, each appearing once, so the farms are not followed over time. The farms are spread over 13 local government areas(LGAs).
 
@@ -87,9 +85,24 @@ dropped the 40 farms with no valid yield (a missing yield, or an impossible one 
 Including them is called target leakage: the model would use information that does not exist when afarmer wants a prediction. We tested this on purpose. Adding tubers harvested per hectare raised the cross-validated *R*² of a gradient boosting model from 0.62 to 0.87, and cut the average error from 1.44 to 0.81 t/ha. That improvement is not real skill, because a farmer cannot supply the number of tubers before harvesting them. We therefore reported only the model that uses features known before harvest, and used the question "would a farmer have this value at prediction time?" to check every feature.*
 
 ## 3. Exploratory analysis *(Member 2)*
-*Describe the distribution of yield (mean, SD, range) and your 3–5 key findings from Part 3, each with a number. Include at least one figure. Discuss the curved rainfall relationship and what the gender comparison tables showed.*
 
-![Figure X: …](../figures/…)
+### 3.1 Distribution of yield
+
+Yield is roughly symmetric and bell-shaped (Figure 1 in the notebook). Across the 2,360 cleaned farms the mean is 9.64 t/ha (SD 2.94) and the median 9.71 t/ha, with a range of 1.5 to 18.7 t/ha and skewness of -0.08. There are no extreme outliers after cleaning, and the middle half of farms yield between 7.7 and 11.6 t/ha. No transformation of the outcome was needed.
+
+### 3.2 Key findings
+
+1. **Yield differs strongly by location.** Mean yield ranged from 7.94 t/ha in Kokona and 7.95 t/ha in Keffi to 11.10 t/ha in Akwanga, 11.00 in Toto and 10.92 in Wamba (one-way ANOVA across the 13 LGAs, *F*(12, 2347) = 27.10, *p* < .001).
+2. **Pests, seed and staking go with the largest differences.** Mean yield fell steadily with pest and disease level, from 10.65 t/ha when absent to 7.00 t/ha when high. It rose from 9.12 t/ha with farmers' own saved setts to 11.46 t/ha with certified seed yam, and was higher on staked farms (10.46 vs 8.83 t/ha). Organic manure was also associated with higher yield (10.11 vs 9.37 t/ha) and intercropping with lower yield (9.29 vs 10.06 t/ha). Planting in April gave the lowest mean yield (8.19 t/ha), against 10.17 t/ha in January. Figure 1 shows the staking advantage within each seed source, and Table 1 compares staked and unstaked farms.
+3. **Fertiliser is the strongest numeric predictor.** Its correlation with yield was *r* = .32, and mean yield rose from 8.41 t/ha in the lowest-fertiliser group to 11.40 t/ha in the highest.
+4. **Rainfall has a curved relationship with yield.** Its straight-line correlation was almost zero (*r* = .07), which suggests no effect, but grouping farms by rainfall shows a hill shape: mean yield was 8.35 t/ha in the driest group, peaked at about 10.2 t/ha for 1,200 to 1,325 mm, and fell to 9.11 t/ha in the wettest group. Too little and too much rain are both associated with lower yield. A correlation coefficient only measures straight-line relationships and misses this, so we model the curve explicitly in the regression.
+5. **A post-harvest variable is almost the outcome.** Tubers harvested per hectare had a correlation of *r* = .92 with yield, which is why it was excluded from prediction (Section 2.3).
+
+### 3.3 Gender comparison
+
+Women (*n* = 655) had a slightly lower mean yield than men (*n* = 1,705): 9.40 vs 9.73 t/ha. They also hadmuch less access to inputs and support. Women farmed smaller plots (1.13 vs 1.52 ha), received about half as many extension visits (0.80 vs 1.53), and were less likely to have access to credit (13.9% vs 29.0%), to belong to a cooperative (28.4% vs 43.1%) or to stake their yam (35.1% vs 55.4%). Since staking alone is associated with about 1.6 t/ha higher yield, the small yield gap may reflect unequal access to resources and not gender itself. We test this idea with regression in Section 5.
+
+![Figure 1: Mean yam yield by seed source and staking practice. Error bars show 95% confidence intervals.](../figures/fig1_yield_by_seed_and_staking.png)
 
 ## 4. Hypothesis tests *(Member 3)*
 *Report H1 (staking, Welch's t-test), H2 (cooperative × credit, chi-square) and H3 (gender, t-test) in APA style with effect sizes and confidence intervals. Example:*
