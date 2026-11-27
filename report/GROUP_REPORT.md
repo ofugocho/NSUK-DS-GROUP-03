@@ -269,7 +269,39 @@ in `models/` (`yam_yield_model.joblib` and `model_card.json`), which are created
   (*R*² = 0.59), and it only uses pre-harvest information in the survey, so factors not measured here (such as local weather events or management skill) are not accounted for.
 
 ## 8. Discussion and limitations *(everyone)*
-*What do the results mean together? Which practices seem most promising for farmers or extension officers? Limitations: synthetic data; observational (association, not causation); missing data and listwise deletion in the regression; possible unmeasured confounders; model only valid for farms similar to the training data.*
+
+### 8.1 What the results mean together
+
+The three approaches in this report point the same way. In the group comparisons (Sections 3 and 4), the regression (Section 5) and the prediction model (Section 6), the same factors stand out: pest and disease pressure, seed source, staking, fertiliser and location. In the regression, which holds the other factors constant, high pest and disease pressure was associated with 3.68 t/ha lower yield, certified seed with 2.20 t/ha higher yield and staking with 1.56 t/ha higher yield. The prediction model, which explains about 59% of the variation in yield on unseen farms, relied on the same variables. Two curved effects (rainfall and mound density) show that more is not always better, and that a straight-line summary can hide a real relationship.
+
+### 8.2 Practices that look most promising
+
+In this dataset, the practices most strongly associated with higher yield, and so the most promising to look at further, were:
+
+1. **Managing pests and diseases.** This was the largest effect, but pest level is not a choice a farmer makes directly, so it points to the value of control measures and advice.
+2. **Using certified or improved seed** (certified +2.20 t/ha and ADP/NGO +1.13 t/ha over own saved setts).
+3. **Staking** (+1.56 t/ha), which was beneficial in every seed group and in all 13 LGAs.
+4. **Fertiliser** (about +1.12 t/ha per extra 100 kg/ha), **organic manure** (+0.84 t/ha) and **early planting** (December to February rather than March or April).
+
+Intercropping was associated with lower yield (-0.77 t/ha), so mixed cropping may need better guidance. We did not study costs or revenue, so we cannot say which practice is the most profitable.
+
+The gender results suggest a policy direction. Women had slightly lower yields in the raw comparison, but after adjusting for practices and resources the gap was no longer significant. Women also had much less access to staking, extension, cooperatives and credit. In this dataset, extension services, staking materials and improved seed for women farmers therefore look like sensible targets. Cooperative members were much more likely to have credit (40.8% vs 14.6%), so cooperatives may help spread access. Credit itself showed no independent association with yield, so it may work best when paired with inputs and
+advice.
+
+### 8.3 Limitations
+
+- **The data are synthetic.** They were made for teaching and do not describe real farms. Everything above applies to this dataset, and none of it should guide real farm decisions.
+- **The study is observational.** Farms were not assigned to practices, so we report associations, not causes. Farms that stake may differ in other ways we cannot see, and the staking effect could be partly due to those differences.
+- **Unmeasured confounders.** Soil quality, local weather events, management skill and market conditions are not all in the data. LGA was a strong predictor, probably because it stands in for such factors.
+- **Missing data.** The regression dropped every farm with any missing predictor (listwise deletion), so itused 1,846 of 2,360 farms. If the missing values are not random, the estimates could be biased. The prediction model filled the gaps with typical values instead, which is simple but not perfect.
+- **Timing of the features.** Pest level, rainfall, weeding and extension visits are known before harvest but not at planting, so the model predicts yield before harvest, not at planting.
+- **Limited range.** The model is only valid for farms similar to those in the training data, and its predictions are uncertain (typically off by about 1.4 t/ha).
+- **Several tests.** We ran three main hypothesis tests. The gender result (*p* = .014) would be about .04 after a Bonferroni correction, so it is only weakly significant.
+- **Years were pooled.** Surveys from 2021 to 2025 were analysed together, and differences between years were not modelled.
+
+### 8.4 Suggestions for further work
+
+With real data, the next steps would be to measure costs and revenue so that profitability could be compared, to follow the same farms over time, and to use methods designed for causal questions, such as a field trial of staking or improved seed.
 
 ## 9. Conclusion *(Member 5)*
 *3–5 sentences answering the research question.*
