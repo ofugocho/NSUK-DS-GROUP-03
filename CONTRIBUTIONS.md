@@ -13,7 +13,7 @@ cleaning code for LGAs, Yes/No and months; wrote report section 2; fixed the mer
 | 3 | Nathaniel Christian Chidi| @Ogaphys | Statistics lead (Parts 4–5) | Working on the statistical analysis of the project 
 | 4 |Bisala Bwejua Caleb | @Bisacal | Machine-learning lead (Part 6) |Committing my name to the repository |
 | 5 |Tavershima Ngutor Moses | @uvaoceanz | App lead (Parts 8–9) | repo,set up enviroment |
-| 6 | | @ | Reviwer | |
+| 6 | Njeni John Okachi |S @JohnTech-coder96 | Reviwer | Reviewing the whole project |
 
 
 ## Meeting log *(optional, but helps if there are disagreements later)*
