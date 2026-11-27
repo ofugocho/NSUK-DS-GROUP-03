@@ -256,7 +256,7 @@ in `models/` (`yam_yield_model.joblib` and `model_card.json`), which are created
 
 ![Figure 5: The Predict tab of the app.](../figures/app_predict.png)
 
-![Figure 6: The Explore tab of the app.](../figures/app_explore.png)
+![Figure 6: The Explore tab of the app.](https://raw.githubusercontent.com/ofugocho/NSUK-DS-GROUP-03/main/figures/app_explore.png)
 
 ![Figure 7: The About tab of the app.](../figures/app_about.png)
 
