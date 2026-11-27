@@ -73,14 +73,14 @@ dropped the 40 farms with no valid yield (a missing yield, or an impossible one 
 **Why missing values were not filled in at this stage.** Filling gaps with a typical value (such as the median) uses information from the whole dataset. If we did that before splitting the data, the test farms would influence the values used to train the model, and the model's test score would look better than it really is. We therefore left the gaps as they are, and the model pipeline fills them in using the training farms only (and, during cross-validation, only the training part of each fold). The multiple regression in Part 5 uses only farms with complete data (1,846 of 2,360).*
 
 ### 2.3 Leaky variables
-*Two columns were excluded from all models because they are only known **after** the harvest:
+Two columns were excluded from all models because they are only known **after** the harvest:
 
 - **`tubers_harvested_per_ha`**, the number of tubers dug up per hectare. Yield is roughly the
   number of tubers times the average tuber weight, so this column is almost the outcome itself
   (correlation with yield *r* = .92).
 - **`harvest_revenue_naira`**, the money earned from selling the harvest. It is calculated from theyield, the farm size and the price, so it contains the answer.
 
-Including them is called target leakage: the model would use information that does not exist when afarmer wants a prediction. We tested this on purpose. Adding tubers harvested per hectare raised the cross-validated *R*² of a gradient boosting model from 0.62 to 0.87, and cut the average error from 1.44 to 0.81 t/ha. That improvement is not real skill, because a farmer cannot supply the number of tubers before harvesting them. We therefore reported only the model that uses features known before harvest, and used the question "would a farmer have this value at prediction time?" to check every feature.*
+Including them is called target leakage: the model would use information that does not exist when afarmer wants a prediction. We tested this on purpose. Adding tubers harvested per hectare raised the cross-validated *R*² of a gradient boosting model from 0.62 to 0.87, and cut the average error from 1.44 to 0.81 t/ha. That improvement is not real skill, because a farmer cannot supply the number of tubers before harvesting them. We therefore reported only the model that uses features known before harvest, and used the question "would a farmer have this value at prediction time?" to check every feature.
 
 ## 3. Exploratory analysis *(Member 2)*
 
