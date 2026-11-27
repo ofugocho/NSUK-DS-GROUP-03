@@ -143,9 +143,47 @@ Mean yield differed between the four seed sources, *F*(3, 2356) = 49.86, *p* < .
 These tests compare groups of farms one factor at a time, so they describe associations and not causes. Because three hypotheses were tested, we also checked the least significant result: after a Bonferroni correction (multiplying each *p* by 3), the gender result remains significant (*p* ≈ .04), and the other two are unaffected.
 
 ## 5. Regression analysis *(Member 3)*
-*Which variables were in the model, how many rows were used (and why fewer than the cleaned total), and the adjusted R². Interpret the 4–6 most important coefficients with their 95% CIs (direction, size, unit). Explain what the squared terms show. **Discuss the gender gap:** raw difference vs adjusted difference, and what this suggests. Include Figure 2 (coefficient plot). Mention the assumption checks.*
+
+### 5.1 Model
+
+A multiple linear regression (ordinary least squares) explained yield (t/ha) using 6 numeric and 9 categorical predictors: fertiliser, rainfall, mound density, sett weight, weeding count, extension visits, staking, organic manure, intercropping, planting month, soil type, access to credit, seed source, pest and disease level, and gender. Each category is compared with a reference level (No, March, Clay loam, Own saved setts, Absent, Male). We added squared terms for rainfall and mound density, centred at 1,260 mm and 10,000 mounds per hectare. The two post-harvest columns were not used, and LGA was not included.
+
+The model used **1,846 of the 2,360 cleaned farms**. Regression drops every farm with a missing value in any predictor, so 514 farms (22%) were excluded. The model explained about 60% of the variation in yield (*R*² = .605, adjusted *R*² = .599, *F*(26, 1819) = 107.2, *p* < .001). Adding the squared terms raised the adjusted *R*² from .523 to .599.
+
+### 5.2 Main results
+
+Estimates are changes in yield (t/ha) holding all other predictors constant (Figure 2 and Table 2).
+
+- **Pests and disease.** Yield was lower than on farms with no pests by 0.57 t/ha at the low level (95% CI [-0.78, -0.36]), 1.97 t/ha at the moderate level ([-2.22, -1.72]) and **3.68 t/ha at the high level ([-4.01, -3.34])**, the largest effect in the model.
+- **Seed source.** Certified seed yam was associated with **2.20 t/ha higher yield** than farmers' own saved setts (95% CI [1.89, 2.51]), and ADP/NGO seed with 1.13 t/ha higher ([0.87, 1.39]).
+- **Staking.** Staked farms yielded 1.56 t/ha more (95% CI [1.38, 1.74]).
+- **Fertiliser.** Each additional 100 kg/ha was associated with 1.12 t/ha higher yield
+  (95% CI [1.02, 1.22]).
+- **Intercropping.** Intercropped farms yielded 0.77 t/ha less (95% CI [-0.94, -0.60]).
+- **Planting month.** Planting in April was associated with 1.30 t/ha lower yield than March
+  (95% CI [-1.61, -0.99]), while January, February and December planting were 0.79, 0.47 and
+  0.57 t/ha higher.
+
+Organic manure (+0.84 t/ha), weeding (+0.43 t/ha per extra weeding) and extension visits (+0.21 t/ha per visit) were also positive, and soil type mattered (loam +1.08 and sandy loam +0.77 vs clay loam; sandy -0.72).
+
+### 5.3 Curved effects
+
+Both squared terms were negative and significant (*p* < .001). A negative squared term means a
+hill-shaped relationship: there is a best level, and yield falls on either side of it. The estimated peaks were about **1,300 mm of rainfall** and about **10,500 mounds per hectare**. These effects were hidden before: in Section 3, rainfall's correlation with yield was close to zero, and in a model without squared terms, mound density was not significant (*p* = .18). Peaks are estimates from thisdataset and should not be read as recommendations.
+
+### 5.4 The gender gap
+
+In the raw comparison, women's mean yield was 0.33 t/ha lower than men's (*p* = .014). After adjusting for practices, inputs and conditions, the difference for women was **+0.20 t/ha (95% CI [-0.01, 0.40], *p* = .059)**, which is not significant and has the opposite sign. Adding staking alone removed most of the raw gap, and women were much less likely to stake (35% vs 55%), have credit (14% vs 29%), or belong to a cooperative (28% vs 43%), and received about half as many extension visits. Access to credit itself had no independent association with yield (+0.02 t/ha, 95% CI [-0.20, 0.23], *p* = .86).
+
+In this dataset, the raw yield gap therefore appears to reflect unequal access to practices and
+support, not gender itself. This suggests that extension services, staking materials and improved seed for women farmers could narrow the gap. The adjusted estimate is imprecise, so the data are consistent with no gender difference and do not show that women yield more.
+
+### 5.5 Assumption checks
+
+Residual plots showed no pattern. The residual spread was constant (Breusch-Pagan *p* = .262), and the residuals were approximately normal (skewness -0.02, excess kurtosis -0.17; the formal Shapiro-Wilk test gave *p* = .031, which is a trivial departure with 1,846 farms). Multicollinearity was low (all variance inflation factors below 2). A straight-line rainfall term had left a hill-shaped pattern in the residuals, and the squared terms removed it.
 
 ![Figure 2: Farm practices associated with yam yield (regression coefficients with 95% CIs)](../figures/fig2_regression_coefficients.png)
+*Table 2.* Full coefficient table: `results/regression_coefficients.csv`.
 
 ## 6. Predicting yield with machine learning *(Member 4)*
 *Features used, train/test split, the four models compared (include Table 3 from `results/table3_model_comparison_cv.csv`), which model was chosen and why, and the test-set R², MAE and RMSE in plain words ("predictions are typically within about __ t/ha"). Explain the leakage experiment in your own words. Include Figures 3 and 4 and comment on feature importance (and why importance ≠ causation).*
