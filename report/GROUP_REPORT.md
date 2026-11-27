@@ -231,7 +231,42 @@ We measured permutation importance on the test set: each feature in turn was shu
 ![Figure 4: Permutation feature importance](../figures/fig4_feature_importance.png)
 
 ## 7. The Streamlit app *(Member 5)*
-*What the app does, who could use it, and how to run it. Include 2–3 screenshots. Mention its limitations (synthetic data, only valid within the ranges seen in training, not causal).*
+
+### 7.1 What the app does
+
+We built a small web app, **Yam Yield Predictor**, that makes the final model usable without any code. It has three tabs:
+
+- **Predict one farm.** The user describes a farm with boxes for the 11 numeric features (such as farm size, fertiliser and rainfall) and drop-down menus for the 12 categorical features (such as LGA, seed source and staking), then clicks *Predict yield*. The app shows the predicted yield in t/ha with its difference from the average yield in the data, and the expected total harvest for the farm in tonnes (predicted yield multiplied by farm size). The boxes are built automatically from the model card (`models/model_card.json`), so they always match the trained model.
+- **Explore the data.** The user picks a category (for example staking, seed source or pest level) and sees the mean yield for each group as a bar chart and a table, plus the first 200 rows of the cleaned data.
+- **About the model.** This tab reports the model's test-set *R*², MAE and RMSE, the number of training farms, the features used, and the full model card.
+
+### 7.2 Who could use it
+
+In this project the app is a teaching tool for students and instructors to see how a trained model turns farm information into a prediction. If a similar app were built on real survey data, extension officers and farmers' groups could use it to compare the expected yield of different practices on a farm before the season. It must not be used for real farm decisions with this version.
+
+### 7.3 How to run it
+
+From the project folder, with the virtual environment active and the packages installed
+(`pip install -r requirements.txt`):
+
+    streamlit run app/streamlit_app.py
+
+The app opens in the browser at `http://localhost:8501`. It needs the trained model and model card
+in `models/` (`yam_yield_model.joblib` and `model_card.json`), which are created by Part 6 of the notebook.
+
+![Figure 5: The Predict tab of the app.](../figures/app_predict.png)
+
+![Figure 6: The Explore tab of the app.](../figures/app_explore.png)
+
+![Figure 7: The About tab of the app.](../figures/app_about.png)
+
+### 7.4 Limitations
+
+- **The data are synthetic.** The app describes the patterns in a teaching dataset, not real farms, and carries a warning in its sidebar saying so.
+- **Predictions are only valid within the ranges seen in training.** The input boxes are limited to the smallest and largest values in the training data, and the model should not be trusted outside them.
+- **Predictions are not causal.** Changing an input shows what the model predicts for a farm with that description, not what would happen to a real farm if the practice were changed.
+- **Predictions are uncertain.** On unseen farms the model is typically off by about 1.4 t/ha
+  (*R*² = 0.59), and it only uses pre-harvest information in the survey, so factors not measured here (such as local weather events or management skill) are not accounted for.
 
 ## 8. Discussion and limitations *(everyone)*
 *What do the results mean together? Which practices seem most promising for farmers or extension officers? Limitations: synthetic data; observational (association, not causation); missing data and listwise deletion in the regression; possible unmeasured confounders; model only valid for farms similar to the training data.*
