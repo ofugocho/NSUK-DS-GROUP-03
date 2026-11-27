@@ -12,10 +12,22 @@
 ---
 
 ## Abstract *(Member 5, written last, ~150 words)*
-*In one paragraph: the question, the data (n farms, 13 LGAs, synthetic), the methods (cleaning, t-tests, chi-square, multiple regression, machine learning), the 2–3 most important results **with numbers**, and the main conclusion.*
+*This study asked which farm practices are associated with higher yam yield among smallholder farmers in Nasarawa State. We analysed a synthetic survey of 2,436 farm records from 13 local government areas; 2,360 farms remained after cleaning. Methods were data cleaning, Welch t-tests, chi-square tests, multiple regression and machine learning with cross-validation. Staked farms yielded 1.63 t/ha more than unstaked farms (95% CI [1.40, 1.85]). In the regression (n = 1,846; adjusted R² = .60), certified seed (+2.20 t/ha) and staking (+1.56 t/ha) were associated with higher yield, and high pest and disease pressure with lower yield (−3.68 t/ha). The raw yield gap for women (−0.33 t/ha) was not significant after adjustment. A linear regression predicted yield on unseen farms with a mean absolute error of 1.42 t/ha. In this dataset, pest control, improved seed and staking were most strongly associated with yield, but these are associations, not causal effects.*
 
 ## 1. Introduction and research question *(Member 5 or Coordinator)*
-*Why does yam yield matter in Nasarawa State (food security, income)? State the research question and hypotheses H1–H3 from Part 4.1 of the notebook. Say clearly that the data is synthetic and for teaching.*
+*Yam is a major staple crop in Nigeria, grown both for household food and as a cash crop, and Nigeriaproduces roughly two thirds of the world's yam (Kleih et al., 2012). Most of it is grown by smallholder farmers, so differences in yield matter for food security and household income. Nasarawa State, in Nigeria's North Central region, is a yam-growing state, and yield varies widely between farms. Farmers, extension workers and policy makers therefore need to know which practices are associated with higher yield, and whether access to resources such as credit, extension visits and improved seed is shared equally between men and women.
+This report analyses a farm survey to answer that question. It follows a complete, reproducible
+workflow: auditing and cleaning the data, exploratory analysis, hypothesis tests, multiple
+regression to explain yield, and a machine learning model to predict yield before harvest. All
+steps are in one notebook, and the final model is available in a small web app.
+**The data are synthetic.** They were generated for teaching at the NSUK Python for Data Science
+Workshop 2026 and do not describe real farms. All findings below are therefore properties of this dataset, not evidence about farms in Nasarawa State. The data contain 2,436 survey records from 13 local government areas (LGAs); after cleaning, 2,360 farms were analysed.
+**Research question.** Which farm practices are associated with higher yam yield among smallholder farmers in Nasarawa State?
+- **H1:** Farms that stake their yam vines have a higher mean yield than farms that do not.
+- **H2:** Cooperative members are more likely to have access to credit.
+- **H3:** Mean yield differs between male and female farmers.
+Because the data come from an observational survey, we describe associations and do not claim that any practice causes higher yield.
+** REFERENCE** Kleih, U., Phillips, D., Mignouna, D., Ogbonna, M., & Siwoku, B. (2012). *Nigeria: Scoping yam value chain analysis*. Yam Improvement for Income and Food Security in West Africa (YIIFSWA), International Institute of Tropical Agriculture. https://gatesopenresearch.org/documents/3-86/pdf*
 
 ## 2. Data and cleaning *(Member 1)*
 ### 2.1 The dataset
