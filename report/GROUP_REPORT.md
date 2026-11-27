@@ -324,10 +324,13 @@ A linear regression model predicted yield on unseen farms typically within about
 ---
 
 ## References
-Kleih, U., Phillips, D., Mignouna, D., Ogbonna, M., & Siwoku, B. (2012). *Nigeria: Scoping yam value chain analysis*. Yam Improvement for Income and Food Security in West Africa (YIIFSWA), International Institute of Tropical Agriculture. https://gatesopenresearch.org/documents/3-86/pdf
+**REFERENCE** Kleih, U., Phillips, D., Mignouna, D., Ogbonna, M., & Siwoku, B. (2012). *Nigeria: Scoping yam value chain analysis*. Yam Improvement for Income and Food Security in West Africa (YIIFSWA), International Institute of Tropical Agriculture. https://gatesopenresearch.org/documents/3-86/pdf*
 
 ## Appendix: reproducibility
-- Repository: *link*
+
+- Repository: https://github.com/ofugocho/NSUK-DS-GROUP-03
 - Run: `pip install -r requirements.txt` → open `notebooks/group_project.ipynb` → **Run All** → `streamlit run app/streamlit_app.py`
+- Random seed: 42 (`RANDOM_STATE` in `src/project_tools.py`), so the train/test split and model results can be reproduced
+- Data: synthetic survey, `data/raw/nasarawa_yam_survey_synthetic.csv`; cleaned data in `data/processed/`
 - AI use: see [`docs/AI_USE_STATEMENT.md`](../docs/AI_USE_STATEMENT.md)
 - Contributions: see [`CONTRIBUTIONS.md`](../CONTRIBUTIONS.md)
