@@ -105,10 +105,42 @@ Women (*n* = 655) had a slightly lower mean yield than men (*n* = 1,705): 9.40 v
 ![Figure 1: Mean yam yield by seed source and staking practice. Error bars show 95% confidence intervals.](../figures/fig1_yield_by_seed_and_staking.png)
 
 ## 4. Hypothesis tests *(Member 3)*
-*Report H1 (staking, Welch's t-test), H2 (cooperative × credit, chi-square) and H3 (gender, t-test) in APA style with effect sizes and confidence intervals. Example:*
-> *Farms that staked their vines had a higher mean yield than farms that did not (difference = __ t/ha, 95% CI [__, __]), Welch's t = __, p < .001, Cohen's d = __.*
 
-*Include Table 1 (descriptive statistics by staking).*
+All tests use the 2,360 cleaned farms. We report effect sizes and 95% confidence intervals as well as
+*p*-values, because a significant result does not show how large an effect is.
+
+### 4.1 H1: staking and yield (Welch's t-test)
+Farms that staked their vines had a higher mean yield (10.46 t/ha, *n* = 1,174) than farms that did not (8.83 t/ha, *n* = 1,186; difference = 1.63 t/ha, 95% CI [1.40, 1.85]), Welch's *t*(2358) = 13.99, *p* < .001, Cohen's *d* = 0.58, a medium effect. **H1 is supported.** Table 1 shows that staked and unstaked farms were very similar in fertiliser use, farm size and weeding, so these do not explain the difference. Staked farms did receive more extension visits (1.55 vs 1.11).
+
+**Table 1.** Descriptive statistics by staking practice, mean (SD)
+
+| Variable | Not staked | Staked |
+|---|---|---|
+| Yield (t/ha) | 8.83 (2.84) | 10.46 (2.81) |
+| Fertiliser (kg/ha) | 108.84 (86.26) | 109.46 (90.64) |
+| Farm size (ha) | 1.43 (1.84) | 1.40 (0.94) |
+| Weeding count | 2.48 (0.86) | 2.48 (0.86) |
+| Extension visits | 1.11 (1.28) | 1.55 (1.48) |
+| *n* farms | 1,186 | 1,174 |
+
+*Note.* Means exclude farms with a missing value for that variable (fertiliser 72, farm size 9,
+extension visits 116 missing).
+
+### 4.2 H2: cooperative membership and access to credit (chi-square test)
+
+Cooperative members were more likely to have access to credit (40.8%, 376 of 921) than non-members (14.6%, 210 of 1,439), χ²(1, *N* = 2,360) = 205.63, *p* < .001, Cramér's *V* = .30, a medium association. The expected count in every cell was above 228, so the test's assumption was met. **H2 is supported.** The test shows an association only: it cannot say whether cooperatives help members obtain credit, or whether farmers with credit are more likely to join.
+
+### 4.3 H3: gender and yield (Welch's t-test)
+
+Male farmers had a slightly higher mean yield (9.73 t/ha, *n* = 1,705) than female farmers (9.40 t/ha, *n* = 655; difference = 0.33 t/ha, 95% CI [0.07, 0.59]), Welch's *t*(1214) = 2.47, *p* = .014, Cohen's *d* = 0.11. **H3 is supported, but the effect is small.** Women also had much less access to credit, extension and staking (Section 3.3), so this difference should not be read as an effect of gender itself. We examine this in the regression (Section 5), where it is no longer significant.
+
+### 4.4 Additional test: seed source (one-way ANOVA)
+
+Mean yield differed between the four seed sources, *F*(3, 2356) = 49.86, *p* < .001, η² = .06 (a medium effect). Yield was highest for certified seed yam (11.46 t/ha) and lowest for farmers' own saved setts (9.12 t/ha), with ADP/NGO seed (10.27) and local-market seed (9.50) in between. Tukey post-hoc comparisons found that every pair of sources differed significantly (adjusted *p* < .05).
+
+### 4.5 Note on interpretation
+
+These tests compare groups of farms one factor at a time, so they describe associations and not causes. Because three hypotheses were tested, we also checked the least significant result: after a Bonferroni correction (multiplying each *p* by 3), the gender result remains significant (*p* ≈ .04), and the other two are unaffected.
 
 ## 5. Regression analysis *(Member 3)*
 *Which variables were in the model, how many rows were used (and why fewer than the cleaned total), and the adjusted R². Interpret the 4–6 most important coefficients with their 95% CIs (direction, size, unit). Explain what the squared terms show. **Discuss the gender gap:** raw difference vs adjusted difference, and what this suggests. Include Figure 2 (coefficient plot). Mention the assumption checks.*
