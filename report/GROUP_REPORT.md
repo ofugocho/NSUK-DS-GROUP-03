@@ -186,7 +186,45 @@ Residual plots showed no pattern. The residual spread was constant (Breusch-Paga
 *Table 2.* Full coefficient table: `results/regression_coefficients.csv`.
 
 ## 6. Predicting yield with machine learning *(Member 4)*
-*Features used, train/test split, the four models compared (include Table 3 from `results/table3_model_comparison_cv.csv`), which model was chosen and why, and the test-set R², MAE and RMSE in plain words ("predictions are typically within about __ t/ha"). Explain the leakage experiment in your own words. Include Figures 3 and 4 and comment on feature importance (and why importance ≠ causation).*
+
+### 6.1 Setup
+
+The aim was to predict the yield of a farm from information known **before harvest**. We used 23
+features: 11 numeric (farmer age, household size, years farming, farm size, sett weight, mound
+density, fertiliser, weeding count, rainfall, extension visits, distance to market) and 12
+categorical (LGA, gender, education, seed source, planting month, staking, organic manure, intercropping, soil type, pest and disease level, cooperative membership, access to credit). The two post-harvest columns were excluded (Section 2.3).
+
+We kept 20% of farms as a test set (472 farms) and used the other 80% (1,888 farms) for training. The test set was not touched until the final evaluation. Missing values were filled (median for numbers, most frequent value for categories), numbers were scaled and categories were one-hot encoded inside a pipeline, so these values were learned from the training farms only.
+
+### 6.2 Model comparison
+
+We compared four models with 5-fold cross-validation on the training set (Table 3). The baseline
+always predicts the average yield, and any useful model must clearly beat it.
+
+**Table 3.** Cross-validated performance (training set)
+
+| Model | R² (mean) | R² (sd) | MAE (t/ha) |
+|---|---|---|---|
+| Baseline (predict the mean) | -0.002 | 0.002 | 2.378 |
+| Linear regression | 0.629 | 0.023 | 1.426 |
+| Random forest | 0.468 | 0.019 | 1.705 |
+| Gradient boosting | 0.623 | 0.015 | 1.439 |
+
+All three models beat the baseline. Linear regression had the highest mean *R*², but its difference from gradient boosting (0.006) is smaller than the variation between folds (sd 0.015 to 0.023), so the two are practically equally good. The random forest was clearly worse. We chose **linear regression** because it performed as well as the more complex model and is simpler to explain. The relationships in this dataset are mostly additive and close to straight lines, which suits it.
+
+### 6.3 Test-set performance
+
+The chosen model was trained on all training farms and tested once. On the 472 unseen farms it reached *R*² = 0.59, MAE = 1.42 t/ha and RMSE = 1.83 t/ha (Figure 3). In plain words, **predictions are typically within about 1.4 t/ha of the true yield**, which is about 15% of the average yield (9.6 t/ha). About 44% of predictions were within 1 t/ha and about 75% within 2 t/ha. The test score is a little lower than the cross-validated score (0.59 vs 0.63), as expected, because the test set is small and was not used for tuning.
+
+### 6.4 The leakage experiment
+
+A colleague might suggest adding the number of tubers harvested per hectare, because it "makes the model much better". We tried it: the cross-validated *R*² of a gradient boosting model rose from 0.62 to 0.87, and the average error fell from 1.44 to 0.81 t/ha. But tubers are only counted when the crop is dug up, and yield is roughly the number of tubers multiplied by the average tuber weight. The model was therefore not learning anything about farm practices; it was reading the answer from a column that measures nearly the same thing. A farmer asking for a prediction before harvest cannot provide that number, so the model would be useless in practice. Cross-validation cannot catch this, because the leaky column is present in every fold. Only knowing when each variable is measured can. The result below uses only features known before harvest.
+
+### 6.5 Which features matter?
+
+We measured permutation importance on the test set: each feature in turn was shuffled, and the drop in *R*² shows how much the model relies on it (Figure 4). The most important features were **LGA** (drop 0.27), **pest and disease level** (0.23), **fertiliser** (0.19), **staking** (0.13), **seed source** (0.12), **soil type** (0.10) and **planting month** (0.09). Gender, access to credit, cooperative membership and farm size contributed almost nothing, which agrees with the regression.
+
+**Importance is not causation.** Permutation importance describes what the *model uses to predict*, not what would happen if a farmer changed a practice. LGA is probably standing in for unmeasured local conditions such as climate, soil quality or market access, so a high importance does not mean that location itself raises yield. A feature can also rank high simply because it varies a lot across farms (as fertiliser does). To estimate the effect of a practice, use the regression coefficients in Section 5.
 
 ![Figure 3: Predicted vs actual yield on the test set](../figures/fig3_predicted_vs_actual.png)
 
