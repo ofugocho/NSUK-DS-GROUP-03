@@ -20,14 +20,17 @@ This report analyses a farm survey to answer that question. It follows a complet
 workflow: auditing and cleaning the data, exploratory analysis, hypothesis tests, multiple
 regression to explain yield, and a machine learning model to predict yield before harvest. All
 steps are in one notebook, and the final model is available in a small web app.
+
 **The data are synthetic.** They were generated for teaching at the NSUK Python for Data Science
 Workshop 2026 and do not describe real farms. All findings below are therefore properties of this dataset, not evidence about farms in Nasarawa State. The data contain 2,436 survey records from 13 local government areas (LGAs); after cleaning, 2,360 farms were analysed.
+
 **Research question.** Which farm practices are associated with higher yam yield among smallholder farmers in Nasarawa State?
 - **H1:** Farms that stake their yam vines have a higher mean yield than farms that do not.
 - **H2:** Cooperative members are more likely to have access to credit.
 - **H3:** Mean yield differs between male and female farmers.
 Because the data come from an observational survey, we describe associations and do not claim that any practice causes higher yield.
-** REFERENCE** Kleih, U., Phillips, D., Mignouna, D., Ogbonna, M., & Siwoku, B. (2012). *Nigeria: Scoping yam value chain analysis*. Yam Improvement for Income and Food Security in West Africa (YIIFSWA), International Institute of Tropical Agriculture. https://gatesopenresearch.org/documents/3-86/pdf*
+
+**REFERENCE** Kleih, U., Phillips, D., Mignouna, D., Ogbonna, M., & Siwoku, B. (2012). *Nigeria: Scoping yam value chain analysis*. Yam Improvement for Income and Food Security in West Africa (YIIFSWA), International Institute of Tropical Agriculture. https://gatesopenresearch.org/documents/3-86/pdf*
 
 ## 2. Data and cleaning *(Member 1)*
 ### 2.1 The dataset
