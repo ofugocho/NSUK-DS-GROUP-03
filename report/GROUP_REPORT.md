@@ -30,8 +30,6 @@ Workshop 2026 and do not describe real farms. All findings below are therefore p
 - **H3:** Mean yield differs between male and female farmers.
 Because the data come from an observational survey, we describe associations and do not claim that any practice causes higher yield.
 
-**REFERENCE** Kleih, U., Phillips, D., Mignouna, D., Ogbonna, M., & Siwoku, B. (2012). *Nigeria: Scoping yam value chain analysis*. Yam Improvement for Income and Food Security in West Africa (YIIFSWA), International Institute of Tropical Agriculture. https://gatesopenresearch.org/documents/3-86/pdf*
-
 ## 2. Data and cleaning *(Member 1)*
 ### 2.1 The dataset
 *The data come from a synthetic farm-level survey of yam growers in Nasarawa State, provided as
@@ -304,15 +302,29 @@ advice.
 With real data, the next steps would be to measure costs and revenue so that profitability could be compared, to follow the same farms over time, and to use methods designed for causal questions, such as a field trial of staking or improved seed.
 
 ## 9. Conclusion *(Member 5)*
-*3–5 sentences answering the research question.*
+In this synthetic dataset, the farm practices most strongly associated with higher yam yield were managing pests and diseases (high pest pressure was linked to 3.68 t/ha lower yield), using certified seed (+2.20 t/ha) and staking (+1.56 t/ha), followed by fertiliser, organic manure and early planting, while intercropping was associated with lower yield. The small raw yield gap for women (0.33 t/ha) was no longer significant after accounting for practices and resources, and women had much less access to staking, extension and credit, which suggests that narrowing these access gaps is a sensible target.
+A linear regression model predicted yield on unseen farms typically within about 1.4 t/ha using only information known before harvest, and a Streamlit app lets users try it. Because the data are synthetic and observational, these results are associations that illustrate a data science workflow, not evidence about real farms in Nasarawa State.
 
 ## 10. What we learned as a team *(everyone, ~1 short paragraph each, optional but encouraged)*
-*What was hard, what you would do differently, and how you used Git and GitHub together.*
+
+**Victor Ochoche (Data lead).** The hardest part was how messy the raw file was: one column of LGAs had 49 spellings for 13 places, and some numbers were stored as text. I learned to audit first, fix one problem at a time on a copy, and never change the raw file. Next time I would write the cleaning as a single function from the start.
+
+**Ahamefula Okpara (Visualisation lead).** I learned that a correlation can hide a real pattern: rainfall had almost no correlation with yield, but the plot showed a clear hill shape. Making figures publication-ready (units, readable colours, saved at 300 dpi as PNG and PDF) took more care than drawing them. Next time I would check each figure in greyscale from the beginning.
+
+**Nathaniel Christian Chidi (Statistics lead).** Reporting effect sizes and confidence intervals, and not only p-values, changed how I read the results. The most important lesson was seeing the gender gap disappear once staking and other practices were held constant, which showed me the difference between association and causation. Next time I would plan how to handle missing data earlier, because the regression dropped 22% of the farms.
+
+**Bwejua Bisala (ML lead).** Target leakage was the biggest lesson: adding tubers harvested raised the R² from 0.62 to 0.87, but it was not real skill. I also learned that a simple linear regression can match a more complex model and is easier to explain. Next time I would spend more time tuning the models.
+
+**Tavershima Ngutor Moses (App lead).** Turning a saved model into a working app was easier than I expected, because the input boxes are built from the model card. The hard parts were setting up the environment and keeping file paths correct. Next time I would test the app with extreme inputs and deploy it online.
+
+**Njeni John Okachi (Reviewer).** Reviewing meant checking that every number in the report matched the notebook and that names and file paths were consistent across the notebook, app and report. Many small errors were easy to miss until I compared them directly. Next time I would review each section as soon as it was written, not at the end.
+
+**Using Git and GitHub together.** We worked in one shared repository, with each member responsible for a part of the notebook. Two of us edited and committed the same notebook, which caused a merge conflict that broke the file, and we had to undo a commit to recover. From this we learned to pull before pushing, to avoid editing the same notebook at the same time, and to clear outputs before committing. Keeping shared code in `src/` and results in separate folders also made the work easier to combine.
 
 ---
 
 ## References
-*Only cite sources you have actually read. Check every reference exists, because AI tools invent references. If you cite nothing, delete this section.*
+Kleih, U., Phillips, D., Mignouna, D., Ogbonna, M., & Siwoku, B. (2012). *Nigeria: Scoping yam value chain analysis*. Yam Improvement for Income and Food Security in West Africa (YIIFSWA), International Institute of Tropical Agriculture. https://gatesopenresearch.org/documents/3-86/pdf
 
 ## Appendix: reproducibility
 - Repository: *link*
